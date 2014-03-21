@@ -3,3 +3,5 @@
 require 'model.rb'
 require 'view.rb'
 
+
+View.grab_and_push("Card.question")
