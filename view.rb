@@ -31,6 +31,10 @@ class View
       puts "Correct! Your answer of #{@response} was right on the mark! You are likely good looking and deserve a raise and maybe a drink, handsome!"
     else
       puts "Your answer of #{@response} was dumb. Try again!"
+    end
   end
 end
 
+  def end_game_message
+    puts "Congrats! You've finished the game!"
+  end
