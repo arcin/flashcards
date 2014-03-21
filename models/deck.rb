@@ -4,6 +4,8 @@ class Deck
     @deck = []
   end
 
+
+
   def add(card)
     @deck << card
   end
@@ -25,3 +27,4 @@ class Deck
   end
 end
 
+# escape code is     print "\e[2J"
