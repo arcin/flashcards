@@ -1,0 +1,17 @@
+Model
+  - Card Class
+  - Objects will be cards containing the definition and correct answer as attributes.
+  - Might use in regex to bring in data.
+    - period(.) signifies the end of a definition
+    - new line breaks (\n) signify the end of a correct answer
+    - white space (\s) will signify the end of a card.
+  - We'll use an array to contain all the card objects.
+    - This may become a Deck Class later?
+Controller
+  - spit out the definition :: View
+  - Take in the guess :: View
+  - Check to see if the guess is correct :: Model
+  - Present the correct or incorrect prompt :: View
+View
+  - Puts to the screen
+  - gets from the screen
