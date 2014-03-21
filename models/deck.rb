@@ -4,18 +4,8 @@ class Deck
     @deck = []
   end
 
-  # def read_deck
-  #   File.readlines('../flashcards.txt').each_with_index do |line, index|
-  #     # @cards << Card.new ()
-  #     puts "#{line} is a question because line # is #{(index+1)}" if (index+1) % 3 == 1
-  #     puts "#{line} is an answer because line # is #{(index+1)}" if (index+1) % 3 == 2
-
-  #   end
-  # end
-
   def add(card)
     @deck << card
-    @deck.length ##bugbug
   end
 
   def contain(card)
@@ -23,7 +13,15 @@ class Deck
   end
 
   def check(guess)
-    @deck.delete_if { |card| card.word == guess }
+    @deck.each  { |card| card.correct! if card.word == guess.word }
+  end
+
+  def clean
+    @deck.delete_if { |card| card.correct? }
+  end
+
+  def shuffle
+    @deck.shuffle!
   end
 end
 
