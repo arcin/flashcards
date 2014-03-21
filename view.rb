@@ -4,7 +4,7 @@
 # send response to the controller
 # get and display answer from controller
 
-require 'model.rb'
+require 'controller.rb' # doesn't exist yet
 
 
 class View
