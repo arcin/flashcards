@@ -4,37 +4,47 @@
 # send response to the controller
 # get and display answer from controller
 
-require 'controller.rb' # doesn't exist yet
-
 
 class View
 
-  def welcome
+  def self.welcome
     "Welcome to the Match-O 2000 game!"
   end
 
-  def grab_and_push(question)
+  def self.grab_and_push(question)
     display_question(question)
     grab_response
   end
 
-  def display_question(question) # arg
+  def self.display_question(question) # arg
     puts question
   end
 
-  def grab_response # grab and pass response
-    @response = gets.chomp
+  def self.grab_response # grab and pass response
+    gets.chomp
   end
 
-  def display_result(result)
-    if result
-      puts "Correct! Your answer of #{@response} was right on the mark! You are likely good looking and deserve a raise and maybe a drink, handsome!"
-    else
-      puts "Your answer of #{@response} was dumb. Try again!"
-    end
-  end
-end
+#   def self.display_result(result)
+#     if result
 
-  def end_game_message
+#     else
+
+#     end
+#   end
+# end
+
+  def self.correct_message
+    puts "Correct! Your answer right on the mark! You are likely good looking and deserve a raise and maybe a drink, handsome! \n\n"
+  end
+
+  def self.incorrect_message
+    puts "Your answer was dumb. Try again! \n\n"
+  end
+
+
+
+
+  def self.end_game_message
     puts "Congrats! You've finished the game!"
   end
+end
