@@ -27,18 +27,9 @@ class Controller
     response = View.grab_and_push(@card.definition)
   end
 
-
-  # def check_if_correct
-
-  #   View.display_result(correct_or_not)
-  #   card.correct!
-
-  #   # card.whatever_fucking_method(correct_or_not) # not the method name, clearly
-  # end
-
   def prompt
       View.incorrect_message
-      guess = View.grab_response
+      View.grab_response
   end
 
   def driver_loop
