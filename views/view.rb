@@ -8,7 +8,9 @@
 class View
 
   def self.welcome
-    "Welcome to the Match-O 2000 game!"
+    clear_screen
+    puts "Welcome to the Match-O 2000 game!"
+    sleep 2
   end
 
   def self.grab_and_push(question)

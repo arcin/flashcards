@@ -1,6 +1,7 @@
 require_relative 'Deck'
 class Card
   attr_reader :definition, :word
+  attr_accessor :correct
   def initialize(definition, word)
     @definition = definition
     @word = word

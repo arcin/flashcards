@@ -4,7 +4,7 @@ require_relative 'models/deck.rb'
 require_relative 'views/view.rb'
 
 class Controller
-  def initialize(file = PATH + 'flashcards.txt')
+  def initialize(file = PATH + 'flashcards_short.txt')
     @file = file
     @flashcards = Deck.new
     @text = []
@@ -37,19 +37,30 @@ class Controller
 
   def prompt
       View.incorrect_message
-      guess = View.grab_response
+      @guess = View.grab_response
   end
 
   def driver_loop
     View.welcome
-    @flashcards.deck.each do |card|
-      View.display_question(card.definition)
-      guess = View.grab_response
-      until card.word.chomp == guess
-        guess = prompt        
+
+    while @flashcards.deck.length > 0
+
+      @flashcards.deck.each do |card|
+        View.display_question(card.definition)
+        guess = View.grab_response
+        if guess == card.word.chomp
+          card.correct = true
+          View.correct_message
+          sleep 2
+        else
+          puts "Wrong"
+          puts card.word
+          sleep 2
+        end
       end
-      View.correct_message
+      @flashcards.clean
     end
+    View.clear_screen
     View.end_game_message
   end
 
