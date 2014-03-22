@@ -14,7 +14,7 @@ class Deck
     @deck.include?(card)
   end
 
-  def check(guess)
+  def check(guess) # should this be in model and not controller
     @deck.each  { |card| card.correct! if card.word == guess.word }
   end
 
