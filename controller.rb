@@ -2,7 +2,6 @@ PATH = './'
 require_relative 'models/card.rb'
 require_relative 'models/deck.rb'
 require_relative 'views/view.rb'
-require 'pry'
 
 class Controller
   def initialize(file = PATH + 'flashcards.txt')
