@@ -47,7 +47,7 @@ class Controller
       View.display_question(card.definition)
       guess = View.grab_response
       until card.word.chomp == guess
-        prompt
+        guess = prompt        
       end
       View.correct_message
     end
