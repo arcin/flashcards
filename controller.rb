@@ -4,8 +4,10 @@ require_relative 'models/deck.rb'
 require_relative 'views/view.rb'
 
 class Controller
-  def initialize(file = PATH + 'flashcards_short.txt')
+  def initialize(file)#'flashcards_short.txt')
+    p file
     @file = file
+    p @file
     @flashcards = Deck.new
     @text = []
     read
@@ -18,13 +20,13 @@ class Controller
   end
 
   def objectify
-    @text.each { |row| @flashcards.add(Card.new(row[0],row[1])) }
+    @text.shuffle.each { |row| @flashcards.add(Card.new(row[0],row[1])) }
   end
 
 
-  def user_input
-    response = View.grab_and_push(@card.definition)
-  end
+  #def user_input
+  #  response = View.grab_and_push(@card.definition)
+  #end
 
 
   # def check_if_correct
@@ -47,14 +49,15 @@ class Controller
 
       @flashcards.deck.each do |card|
         View.display_question(card.definition)
+        puts "(#{@flashcards.deck.length} questions this round)"
         guess = View.grab_response
         if guess == card.word.chomp
           card.correct = true
           View.correct_message
           sleep 2
         else
-          puts "Wrong"
-          puts card.word
+          View.incorrect_message
+          View.flash_word(card.word)
           sleep 2
         end
       end
@@ -66,5 +69,9 @@ class Controller
 
 end
 
-controller = Controller.new
+
+ARGV.first.class == String ? file = ARGV.first : file = 'flashcards.txt'
+
+controller = Controller.new(file)
 controller.driver_loop
+

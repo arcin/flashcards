@@ -23,6 +23,15 @@ class View
     move_to_home!
     puts "\n"*10
     puts question
+    puts ""
+  end
+
+  def self.flash_word(word)
+    10.times do
+      clear_screen
+      puts word
+      sleep 0.1
+    end
   end
 
   def self.grab_response # grab and pass response
